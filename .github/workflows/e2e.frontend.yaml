@@ -19,6 +19,12 @@ jobs:
           echo "$GITHUB_CONTEXT"
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Use Node.js 22.23.4
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.23.4
+          cache: 'yarn'
+          cache-dependency-path: frontend/yarn.lock
       - name: Run Cypress
         uses: cypress-io/github-action@v5
         with:
